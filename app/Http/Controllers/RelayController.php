@@ -17,4 +17,30 @@ class RelayController extends Controller
     return $relay;
    }
 
+   public function showRelay(Relay $relay){
+      return response()->json([
+          'message' => 'Relay fetched successfully',
+          'data' => $relay,
+      ], 200);
+   }
+
+   public function createRelay(Request $request){
+      
+         $relay = Relay::create([]);
+      
+         return response()->json([
+         'messsage' => 'Relay created successfully',
+         'data' => $relay,
+         ], 200);
+   }
+
+
+   public function deleteRelay(Relay $relay){
+         $relay -> delete();
+         
+         return response()->json([
+            'messsage' => 'Relay deleted successfully',
+         ], 200);
+   }
+
 }
