@@ -17,4 +17,16 @@ class RelayController extends Controller
     return $relay;
    }
 
+   public function offRelay(Relay $relay){
+    $relay->relay_status = false;
+    $relay->save();
+    return $relay;
+   }
+
+   public function onRelay(Relay $relay){
+    $relay->relay_status = true;
+    $relay->save();
+    return $relay;
+   }
+
 }
